@@ -47,10 +47,11 @@ app.post('/api/issues', (req, res) => {
 });
 
 let db;
+app.set('port', (process.env.PORT || 5000));
 MongoClient.connect('mongodb://wengqian:7336368@ds131511.mlab.com:31511/heroku_rt444k54').then(connection => {
     db = connection;
-    app.listen(3000, function () {
-        console.log("app started on port 3000");
+    app.listen(app.get('port'), function () {
+        console.log('Node app is running on port', app.get('port'));
     });
 }).catch(err => {
     console.log(`Error:${err}`)
