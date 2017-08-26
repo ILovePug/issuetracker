@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const Issue = require('./issue.js');
 
 app.use(express.static('static'));
 app.use(bodyParser.json());
@@ -46,7 +47,7 @@ app.post('/api/issues', (req, res) => {
 });
 
 let db;
-MongoClient.connect('mongodb://localhost/issuetracker').then(connection => {
+MongoClient.connect('mongodb://wengqian:7336368@ds131511.mlab.com:31511/heroku_rt444k54').then(connection => {
     db = connection;
     app.listen(3000, function () {
         console.log("app started on port 3000");
