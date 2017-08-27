@@ -389,3 +389,4 @@ _reactDom2.default.render(_react2.default.createElement(_IssueList2.default, nul
 /***/ })
 
 },[84]);
+//# sourceMappingURL=app.bundle.js.map

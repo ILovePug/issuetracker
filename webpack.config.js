@@ -11,7 +11,7 @@ module.exports = {
         filename: 'app.bundle.js'
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({name:'vendor', filename: 'vendor.bundle.js'})
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' })
     ],
     module: {
         loaders: [
@@ -23,5 +23,15 @@ module.exports = {
                 }
             },
         ]
+    },
+    devtool:'source-map',
+    devServer: {
+        port: 8000,
+        contentBase: 'static',
+        proxy: {
+            '/api/*': {
+                target: 'http://localhost:5000'
+            }
+        }
     }
 };
